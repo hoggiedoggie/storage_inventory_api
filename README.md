@@ -18,24 +18,27 @@
 ##  Быстрый старт
 
 ### 1. Запуск инфраструктуры
-*powershell
+```powershell
 docker-compose up --build -d
-
+```
 
 ### 2. Применение миграций
+```
 docker-compose exec app alembic revision --autogenerate -m "Initial"
 docker-compose exec app alembic upgrade head
+```
 
 ### 3. Документация
 Интерфейс управления (Swagger) доступен по адресу:
- http://localhost:8000/docs
+ ```http://localhost:8000/docs```
 
 ### 4. Реализация Soft Delete
 Команда, которая показывает "мягко" удаленные диски из таблицы
-docker-compose exec db psql -U postgres -d inventory_db -c "SELECT model, serial_number, deleted_at FROM storage_devices WHERE deleted_at IS NOT NULL;"
+```docker-compose exec db psql -U postgres -d inventory_db -c "SELECT model, serial_number, deleted_at FROM storage_devices WHERE deleted_at IS NOT NULL;"```
 
 ### Примеры данных для тестирования (POST /api/v1/devices/)
 Ниже приведены примеры реальных моделей накопителей для добавления в базу:
+```
 {
   "model": "Western Digital Red Plus 4TB",
   "serial_number": "WD-WCC7K4YV6L92",
@@ -65,3 +68,4 @@ docker-compose exec db psql -U postgres -d inventory_db -c "SELECT model, serial
   "capacity_gb": 2000,
   "status": "replacement_required"
 }
+```
