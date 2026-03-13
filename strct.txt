@@ -1,0 +1,19 @@
+storage-inventory/
+├── app/                    # Основной код приложения
+│   ├── api/                # Транспортный слой (Transport Layer)
+│   │   └── v1/             # Версионирование API (обязательно для "серьезности")
+│   │       ├── endpoints/  # Контроллеры (Routers)
+│   │       └── api.py      # Сборщик всех роутеров
+│   ├── core/               # Глобальные настройки и конфиги (Base Settings)
+│   ├── db/                 # Настройка подключения к БД и сессий
+│   ├── models/             # Сущности БД (Data Access Layer / SQLAlchemy Models)
+│   ├── schemas/            # DTO (Data Transfer Objects / Pydantic Models)
+│   └── services/           # Бизнес-логика (Business Logic Layer)
+├── alembic/                # Файлы миграций базы данных
+├── tests/                  # Тесты (даже пустая папка добавляет +10 к "серьезности")
+├── .env                    # Секретные ключи и настройки БД
+├── .env.example            # Пример файла настроек для репозитория
+├── Dockerfile              # Инструкция по сборке образа приложения
+├── docker-compose.yml      # Оркестрация (App + Postgres)
+├── requirements.txt        # Список зависимостей
+└── alembic.ini             # Конфигурация инструмента миграций
